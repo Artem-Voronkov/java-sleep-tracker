@@ -63,7 +63,7 @@ public class SleepTrackerApp {
         InputStream inputStream = SleepTrackerApp.class.getResourceAsStream(resourcePath);
 
         if (inputStream != null) {
-            System.out.printf("Файл найден в resources: %s%n" ,resourcePath);
+            System.out.printf("Файл найден в resources: %s%n", resourcePath);
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
                 return reader.lines()
                         .map(line -> processLine(line, formatter))
@@ -82,7 +82,8 @@ public class SleepTrackerApp {
         if (parts.length != 3) {
             throw new IllegalArgumentException(String.format(
                     "Неверный формат строки: ожидается 3 поля, найдено %d в строке: %s",
-                    parts.length, line));        }
+                    parts.length, line));
+        }
 
         LocalDateTime start = LocalDateTime.parse(parts[0], formatter);
         LocalDateTime end = LocalDateTime.parse(parts[1], formatter);
