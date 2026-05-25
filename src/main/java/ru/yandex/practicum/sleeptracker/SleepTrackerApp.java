@@ -45,7 +45,7 @@ public class SleepTrackerApp {
         }
     }
 
-    private List<SleepingSession> loadSleepData(String filePath) throws IOException {
+    public List<SleepingSession> loadSleepData(String filePath) throws IOException {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
 
         System.out.println("Поиск файла: " + filePath);
@@ -78,7 +78,7 @@ public class SleepTrackerApp {
                 " (ни в файловой системе, ни в resources)");
     }
 
-    private SleepingSession processLine(String line, DateTimeFormatter formatter) {
+    public SleepingSession processLine(String line, DateTimeFormatter formatter) {
         String[] parts = line.split(";");
         if (parts.length != 3) {
             throw new IllegalArgumentException(
